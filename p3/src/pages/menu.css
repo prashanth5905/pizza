@@ -1,0 +1,46 @@
+.items{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.prash{
+    padding: 20px;
+    border: 2px solid yellow;
+    margin-bottom: 2%;
+    border-radius: 10px;
+    margin-inline: 25%;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+.pizzaimage{
+    display: inline-block;
+    width: fit-content;  
+}
+.pizzaimage img {
+  display: block;
+  width: 150px; /* or any fixed width */
+  height: auto;
+  border-radius: 8px;
+}
+.details{
+    display: flex;
+    flex-direction: column;
+}
+.name{
+    text-align: left;
+    margin-bottom: 0;
+}
+.order-button{
+    
+    margin-top: 12%;
+    align-self: flex-end;
+    padding: 8px 14px;
+    background-color: tomato;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.ingredients{
+    margin-top: 0;
+}

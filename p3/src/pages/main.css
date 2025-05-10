@@ -1,0 +1,19 @@
+.message{
+    text-align: center;
+    margin-top: 10%;
+}
+.main_message{
+    font-size: large;
+    font-weight: 500;
+}
+.sub_message{
+    font-size: medium;
+    color: rgb(255, 210, 29);
+    
+}
+.order{
+    background-color: rgb(255, 210, 29);
+    border: 2px rgb(255, 210, 29);
+    padding: 1%;
+    border-radius: 10%;
+}
