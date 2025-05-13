@@ -4,8 +4,8 @@ const Main = () => {
     const navigate = useNavigate();
     return(
         <>
-            <div className='message'>
-                <div >
+            <div className='Welcome'>
+                <div className='message'>
                     <p className='main_message'>Hey there! Hungry? You’re in the right place.</p>
                     <div className='sub_message'><p>Your cravings just found their favorite place.Freshly baked, perfectly topped, and<br></br> made with love.</p></div>
                     <p>Order now and let the feast begin! 🍕🔥</p>
