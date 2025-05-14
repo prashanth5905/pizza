@@ -1,4 +1,4 @@
-
+import { CartProvider } from './CartContext';
 import './App.css';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import Main from './pages/main'
@@ -7,7 +7,7 @@ import Cart from './pages/cart'
 
 function App() {
   return (
-    <>
+    <CartProvider>
       <Router>
         <Routes>
           <Route path='/' element={<Main />} />
@@ -15,7 +15,7 @@ function App() {
           <Route path='/Cart' element={<Cart />} />
         </Routes>
       </Router>
-    </>
+    </CartProvider>
   );
 }
 

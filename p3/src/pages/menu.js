@@ -29,39 +29,13 @@
 //     );
 // }
 // export default Menu;
-import React, { useState } from 'react';
+import React from 'react';
 import data from './data.json';
 import './menu.css';
+import { useCart } from '../CartContext';
 
 const Menu = () => {
-  const [cart, setCart] = useState({}); // key: item ID, value: quantity
-
-  const addToCart = (item) => {
-    setCart((prevCart) => ({
-      ...prevCart,
-      [item.id]: 1,
-    }));
-  };
-
-  const increaseQty = (itemId) => {
-    setCart((prevCart) => ({
-      ...prevCart,
-      [itemId]: prevCart[itemId] + 1,
-    }));
-  };
-
-  const decreaseQty = (itemId) => {
-    setCart((prevCart) => {
-      if (prevCart[itemId] === 1) {
-        const { [itemId]: _, ...rest } = prevCart; // remove item
-        return rest;
-      }
-      return {
-        ...prevCart,
-        [itemId]: prevCart[itemId] - 1,
-      };
-    });
-  };
+  const { cart, addToCart, increaseQty, decreaseQty } = useCart();
 
   return (
     <>
@@ -81,7 +55,7 @@ const Menu = () => {
                 {cart[item.id] ? (
                   <div className="quantity-control">
                     <button onClick={() => decreaseQty(item.id)} className="qty-button">−</button>
-                    <span className="quantity">{cart[item.id]}</span>
+                    <div className="quantity">{cart[item.id]}</div>
                     <button onClick={() => increaseQty(item.id)} className="qty-button">+</button>
                   </div>
                 ) : (
