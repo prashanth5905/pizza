@@ -1,7 +1,7 @@
 import React from 'react';
 import { useCart } from '../CartContext';
 import data from './data.json';
-
+import './Cart.css'
 const Cart = () => {
   const { cart, increaseQty, decreaseQty } = useCart();
 
@@ -12,28 +12,34 @@ const Cart = () => {
   }, 0);
 
   return (
-    <>
+    <div className='cartPage'>
       <h1>Cart</h1>
       {itemsInCart.length === 0 ? (
-        <p>Your cart is empty.</p>
+        <p className='empty_message'>Your cart is empty.</p>
       ) : (
-        <div style={{ padding: '20px' }}>
+        <div className='cartblock'>
           {itemsInCart.map((item) => (
-            <div key={item.id} style={{ borderBottom: '1px solid #ccc', marginBottom: '10px' }}>
-              <h3>{item.name}</h3>
-              <p>Price: ${item.unitPrice}</p>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <button onClick={() => decreaseQty(item.id)} className="qty-button">−</button>
-                <span>{cart[item.id]}</span>
-                <button onClick={() => increaseQty(item.id)} className="qty-button">+</button>
+            
+            <div key={item.id} className='itemblock'>
+              <div>
+                <img src={item.imageUrl} alt='pizza_image' />
               </div>
-              <p>Subtotal: ${item.unitPrice * cart[item.id]}</p>
+              <div>
+                <h3>{item.name}</h3>
+                <p>Price: ${item.unitPrice}</p>
+                <div className='cartbutton'>
+                  <button onClick={() => decreaseQty(item.id)} className="qty-button">−</button>
+                  <span>{cart[item.id]}</span>
+                  <button onClick={() => increaseQty(item.id)} className="qty-button">+</button>
+                </div>
+                <p>Subtotal: ${item.unitPrice * cart[item.id]}</p>
+              </div>
             </div>
           ))}
           <h2>Total: ${grandTotal}</h2>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

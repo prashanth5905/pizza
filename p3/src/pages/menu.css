@@ -79,13 +79,40 @@
 .quantity {
   font-size: 1.2rem;
   font-weight: bold;
-} */
-body {
-  background: url('./pics/menu_back.jpg') center/cover no-repeat fixed, #2d1a05; /* Use a pizza oven image or a blurred pizza image */
-  min-height: 100vh;
+} 
+.menuPage{
+  background-image: url('./pics/menu_1.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100vh;
   margin: 0;
   font-family: 'Quicksand', 'Segoe UI', Arial, sans-serif;
   color: #fff;
+}*/
+
+.menu-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('./pics/menu_1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  /* Optional: dark overlay for readability */
+  /* Add a pseudo-element for overlay if needed */
+}
+.menuPage {
+  position: relative;
+  min-height: 100vh;
+  color: #fff;
+  font-family: 'Quicksand', 'Segoe UI', Arial, sans-serif;
+  /* Remove background-image and background-attachment from here */
 }
 
 /* Menu Heading */
@@ -235,6 +262,46 @@ h1 {
   min-width: 32px;
   text-align: center;
 }
+
+.button_container{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 24px 8vw 24px 0; 
+}
+
+.go-to-cart {
+  display: inline-block;
+  margin: 20px auto 40px;
+  padding: 12px 28px;
+  background-color: #ff6f61; /* Tomato-like warm color */
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(255, 111, 97, 0.4);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-align: center;
+  letter-spacing: 1.2px;
+  user-select: none;
+  width: max-content;
+  margin: 0;
+}
+
+.go-to-cart:hover {
+  background-color: #ff3b2e;
+  transform: scale(1.05);
+  box-shadow: 0 8px 18px rgba(255, 59, 46, 0.5);
+}
+
+.go-to-cart:focus {
+  outline: 3px solid #ffb3a7;
+  outline-offset: 3px;
+}
+
+
 
 /* Responsive Adjustments */
 @media (max-width: 600px) {
