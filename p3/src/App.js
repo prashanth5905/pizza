@@ -1,6 +1,6 @@
 import { CartProvider } from './CartContext';
 import './App.css';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Main from './pages/main'
 import Menu from './pages/menu'
 import Cart from './pages/cart'
