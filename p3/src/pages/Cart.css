@@ -1,5 +1,5 @@
 body{
-  background: url('./pics/cart.jpg') center/cover no-repeat fixed, #2d1a05;
+  background: url('../pics/cart.jpg') center/cover no-repeat fixed, #2d1a05;
   min-height: 100vh;
   font-family: 'Quicksand', 'Segoe UI', Arial, sans-serif;
   color: #fff;
