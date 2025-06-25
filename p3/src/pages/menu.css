@@ -197,6 +197,73 @@ h1 {
   outline-offset: 3px;
 }
 
+.search-bar {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 24px auto 32px auto;
+  padding: 12px 18px 12px 44px; /* left padding for icon */
+  font-size: 1.1rem;
+  border-radius: 30px;
+  border: 2px solid #ffe082;
+  padding-left: 44px;
+  box-shadow: 0 2px 12px rgba(255, 193, 7, 0.10);
+  color: #442c1d;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+.no-pizzas-message {
+  position: relative;
+  display: block;
+  margin: 80px auto 0 auto;
+  text-align: center;
+  color: #fffbe8;
+  font-family: 'Pacifico', cursive, 'Quicksand', sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  text-shadow: 0 2px 10px rgba(44,22,8,0.38), 0 0px 1px #442c1d;
+  background: rgba(44,22,8,0.28);
+  border-radius: 18px;
+  padding: 18px 36px;
+  width: max-content;
+  box-shadow: 0 4px 24px rgba(44,22,8,0.16);
+  letter-spacing: 1px;
+}
+
+.pizza-icon {
+  width: 16px;
+  height: 16px;
+  left: 14px;
+  top: 50%;
+  position: absolute;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  user-select: none;
+}
+.pizza-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+
+.search-bar:focus {
+  border: 2px solid #ff6f61;
+  outline: none;
+  box-shadow: 0 4px 20px rgba(255, 111, 97, 0.16);
+  background-color: #fffbe8;
+}
+
+
+@media (max-width: 600px) {
+  .search-bar {
+    max-width: 95vw;
+    font-size: 1rem;
+    padding: 10px 14px 10px 38px;
+  }
+}
+
+
 @media (max-width: 600px) {
   .items {
     grid-template-columns: 1fr;
