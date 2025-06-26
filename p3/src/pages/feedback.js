@@ -12,7 +12,7 @@ function FeedbackForm() {
         e.preventDefault();
         setStatus('Submitting...');
         try {
-            const response = await fetch('http://localhost:4000/feedback', {
+            const response = await fetch('/api/proxy', {
                 method: 'POST',
                 body: JSON.stringify(form),
                 headers: { 'Content-Type': 'application/json' }

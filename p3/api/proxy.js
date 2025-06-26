@@ -1,27 +1,34 @@
-const express = require('express');
-const cors = require('cors');
-const axios = require('axios');
 
-const app = express();
-const PORT = 4000; // Or any port you like
+import axios from 'axios';
 
-app.use(cors());
-app.use(express.json());
-
-app.post('/feedback', async (req, res) => {
-  try {
-    // Forward the data to your Google Apps Script endpoint
-    const scriptUrl = 'https://script.google.com/macros/s/AKfycbyvRk0E-vTgsS5xpQ_Lz8mAw33U3XmuFkhpxSrzrl05yAg4jgSvQknM0LDaiQD5b87cnA/exec';
-    const response = await axios.post(scriptUrl, req.body, {
-      headers: { 'Content-Type': 'application/json' }
-    });
-    console.log('Apps Script response:', response.data);
-    res.json(response.data);
-  } catch (error) {
-    res.status(500).json({ result: 'failed', error: error.message });
+export default async function handler(req, res) {
+  // CORS headers for browser requests
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  if (req.method === 'OPTIONS') {
+    res.status(200).end();
+    return;
   }
-});
 
-app.listen(PORT, () => {
-  console.log(`Proxy server running on http://localhost:${PORT}`);
-});
+  if (req.method === 'POST') {
+    try {
+      const scriptUrl = 'https://script.google.com/macros/s/AKfycbyvRk0E-vTgsS5xpQ_Lz8mAw33U3XmuFkhpxSrzrl05yAg4jgSvQknM0LDaiQD5b87cnA/exec';
+      const response = await axios.post(scriptUrl, req.body, {
+        headers: { 'Content-Type': 'application/json' }
+      });
+      let data = response.data;
+      if (typeof data === 'string') {
+        try {
+          data = JSON.parse(data);
+        } catch {
+          data = { result: 'failed', error: 'Invalid JSON from Apps Script' };
+        }
+      }
+      res.json(data);
+    } catch (error) {
+      res.status(500).json({ result: 'failed', error: error.message });
+    }
+  } else {
+    res.status(405).json({ result: 'failed', error: 'Method not allowed' });
+  }
+}
