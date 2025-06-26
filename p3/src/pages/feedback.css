@@ -1,0 +1,102 @@
+/* Modal backdrop */
+.feedback-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.4);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feedback-modal-content {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  padding: 2rem 2.5rem 1.5rem 2.5rem;
+  min-width: 350px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* Close button */
+.close-modal {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.close-modal:hover {
+  color: #ff9800;
+}
+
+/* Modal heading */
+.feedback-modal-content h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: center;
+  color: #222;
+}
+
+/* Feedback form layout */
+.feedback-modal-content form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+}
+
+/* Input fields */
+.feedback-modal-content input,
+.feedback-modal-content textarea {
+  max-width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  resize: none;
+  transition: border 0.2s;
+}
+
+.feedback-modal-content input:focus,
+.feedback-modal-content textarea:focus {
+  border: 1.5px solid #ff9800;
+  outline: none;
+}
+
+/* Submit button */
+.feedback-modal-content button[type="submit"] {
+  background: #ff9800;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.7rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.feedback-modal-content button[type="submit"]:hover {
+  background: #e68900;
+}
+.status-message {
+  margin: 1rem 0;
+  color: #ff6f61;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.1rem;
+}
